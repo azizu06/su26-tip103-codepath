@@ -31,9 +31,16 @@ def defuse(code, k):
 def non_decreasing(nums):
     limit = 0
     for i in range(len(nums) - 1):
-        if nums[i] > nums[i + 1]:
-            limit += 1
-    return limit <= 1
+        if nums[i] <= nums[i + 1]:
+            continue
+        limit += 1
+        if limit > 1:
+            return False
+        if i == 0 or nums[i - 1] <= nums[i + 1]:
+            nums[i] = nums[i + 1]
+        else:
+            nums[i + 1] = nums[i]
+    return True
 
 
 def linear_search(items, target):
@@ -63,7 +70,7 @@ def tiggerfy(word):
 
 def find_missing_clues(clues, lower, upper):
     if not clues:
-        return [lower, upper]
+        return [[lower, upper]]
     clues.sort()
     res = []
     if lower < clues[0]:
