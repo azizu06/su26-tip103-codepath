@@ -1,4 +1,4 @@
-# CodePath TIP 103 — Intermediate Technical Interview Prep
+# CodePath TIP 103 — Advanced Technical Interview Prep
 
 **Student:** Abduaziz Umarov (azizu06) | UCF CS  
 **Course:** CodePath TIP 103 — Summer 2026  
