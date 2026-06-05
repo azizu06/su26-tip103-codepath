@@ -11,15 +11,19 @@
 ```
 tip103-codepath/
 ├── week1/
-│   ├── session1.py   ← Session 1 problem set
-│   └── session2.py   ← Session 2 problem set
+│   ├── session1.py   ← solutions
+│   ├── session1.md   ← problems, patterns, notes
+│   ├── session2.py
+│   └── session2.md
 ├── week2/
 │   ├── session1.py
-│   └── session2.py
+│   ├── session1.md
+│   ├── session2.py
+│   └── session2.md
 └── ...
 ```
 
-Each file contains solutions to that session's problem set. Problems are organized by week and session as covered in the course.
+Each week has two sessions. The `.py` file holds solutions; the `.md` file documents the problems covered, the technique/pattern for each, and notes from that session.
 
 ---
 
