@@ -10,7 +10,7 @@ def two_sum(nums, target):
 
 
 def is_palindrome(s):
-    l, r = 0, len(s) - 1;;;
+    l, r = 0, len(s) - 1
     while l <= r:
         if s[l] != s[r]:
             return False
@@ -50,7 +50,7 @@ def insert_interval(intervals, new_interval):
     i = 0
     res = []
     n = len(intervals)
-    while new_interval[0] > intervals[i][1]:
+    while i < n and new_interval[0] > intervals[i][1]:
         res.append(intervals[i])
         i += 1
     while i < n and intervals[i][0] <= new_interval[1]:
@@ -72,14 +72,15 @@ def reverse_list(lst):
     return lst
 
 
-def remove_duplicates(items):
-    seen = set()
-    for i in range(len(items) - 1, -1, -1):
-        if items[i] in seen:
-            items.remove(i)
-        else:
-            seen.add(items[i])
-    return items
+def remove_dupes(items):
+    if not items:
+        return 0
+    l = 1
+    for r in range(1, len(items)):
+        if items[r] != items[r - 1]:
+            items[l] = items[r]
+            l += 1
+    return l
 
 
 def three_sum(nums):
@@ -110,5 +111,32 @@ def transpose(matrix):
     res = [[0] * R for _ in range(C)]
     for r in range(R):
         for c in range(C):
-            res[r][c] = matrix[c][r]
+            res[c][r] = matrix[r][c]
     return res
+
+
+def add_matrices(matrix1, matrix2):
+    rows, cols = len(matrix1), len(matrix1[0])
+    res = [[0] * cols for _ in range(rows)]
+    for r in range(rows):
+        for c in range(cols):
+            res[r][c] = matrix1[r][c] + matrix2[r][c]
+    return res
+
+
+def squash_spaces(s):
+    words = s.split()
+    return " ".join(words)
+
+
+def sort_by_parity(nums):
+    l, r = 0, len(nums) - 1
+    while l < r:
+        if nums[l] % 2 == 0:
+            l += 1
+        elif nums[r] % 2 == 1:
+            r -= 1
+        else:
+            nums[l], nums[r] = nums[r], nums[l]
+            l, r = l + 1, r - 1
+    return nums
